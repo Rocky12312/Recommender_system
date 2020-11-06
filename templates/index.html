@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+  <div class="card" style="width: 40rem; margin:auto; margin-top: 10%; margin-bottom:10%;">
+    <div class="card-body">
+      <h2 class="card-title" style="font-family: Impact, Charcoal, sans-serif"><center>MOVIE RECOMMENDATIONS</center></h2>
+      <form action="{{ url_for('predict')}}" method="POST">
+        <br>
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Movie Name</label>
+    <select name="choice" class="form-control" id="exampleFormControlSelect1">
+    {% for movie in movies %}
+    <option value= "{{movie}}" SELECTED>{{movie}}</option>"
+     {% endfor %}
+    </select>
+<small id="emailHelp" class="form-text text-muted">Select the last movie you watched from the drop down.</small>
+  </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
